@@ -1,2556 +1,702 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-<title>Marwar Infotech — Digital Experiences & Web Development Company</title>
-
-<meta name="description"
-content="Marwar Infotech creates premium websites, digital experiences and digital marketing solutions including social media management, Meta Ads and Google Ads. Founded by Pratap Singh Rathore and Co-founded by Harshvardhan Singh Rathore.">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-<style>
-
-/* =========================================================
-   ORIGINAL WEBSITE DESIGN (PRESERVED)
-========================================================= */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:"DM Sans",sans-serif;
-    background:#f7faff;
-    color:#0b1220;
-    overflow-x:hidden;
-}
-
-img{
-    max-width:100%;
-    display:block;
-}
-
-a{
-    color:inherit;
-    text-decoration:none;
-}
-
-button{
-    font-family:inherit;
-}
-
-:root{
-    --blue:#1463ff;
-    --blue-dark:#0747d1;
-    --blue-light:#eaf2ff;
-    --text:#0b1220;
-    --muted:#657086;
-    --white:#ffffff;
-    --soft:#f5f8fd;
-    --border:rgba(15,35,70,.10);
-    --shadow:0 25px 70px rgba(22,55,110,.10);
-    --radius:28px;
-}
-
-.container{
-    width:min(1180px,calc(100% - 40px));
-    margin:auto;
-}
-
-section{
-    position:relative;
-}
-
-.section-space{
-    padding:130px 0;
-}
-
-.section-label{
-    display:inline-flex;
-    align-items:center;
-    gap:9px;
-    font-size:12px;
-    font-weight:700;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    color:var(--blue);
-    margin-bottom:20px;
-}
-
-.section-label span{
-    width:8px;
-    height:8px;
-    border-radius:50%;
-    background:var(--blue);
-    box-shadow:0 0 20px rgba(20,99,255,.5);
-}
-
-.section-title{
-    font-family:"Manrope",sans-serif;
-    font-size:clamp(38px,5vw,68px);
-    line-height:1.02;
-    letter-spacing:-3px;
-    font-weight:800;
-}
-
-.section-title span{
-    color:var(--blue);
-}
-
-.section-copy{
-    color:var(--muted);
-    line-height:1.8;
-    font-size:17px;
-}
-
-/* CURSOR */
-
-.cursor-glow{
-    position:fixed;
-    width:300px;
-    height:300px;
-    border-radius:50%;
-    background:radial-gradient(
-        circle,
-        rgba(20,99,255,.10),
-        transparent 65%
-    );
-    pointer-events:none;
-    transform:translate(-50%,-50%);
-    z-index:1;
-}
-
-/* NAVBAR */
-
-.navbar{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    z-index:1000;
-    padding:18px 0;
-    transition:.4s;
-}
-
-.navbar.scrolled{
-    background:rgba(255,255,255,.85);
-    backdrop-filter:blur(20px);
-    box-shadow:0 10px 40px rgba(0,30,80,.08);
-}
-
-.nav-inner{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-}
-
-.logo{
-    display:flex;
-    align-items:center;
-    gap:11px;
-    font-family:"Manrope";
-    font-size:20px;
-    font-weight:800;
-}
-
-.logo-mark{
-    width:38px;
-    height:38px;
-    border-radius:12px;
-    background:linear-gradient(135deg,#1463ff,#70a2ff);
-    color:white;
-    display:grid;
-    place-items:center;
-    font-weight:800;
-    box-shadow:0 10px 30px rgba(20,99,255,.25);
-}
-
-.nav-links{
-    display:flex;
-    gap:34px;
-    font-size:14px;
-    font-weight:600;
-}
-
-.nav-links a{
-    position:relative;
-}
-
-.nav-links a::after{
-    content:"";
-    position:absolute;
-    left:0;
-    bottom:-7px;
-    width:0;
-    height:2px;
-    background:var(--blue);
-    transition:.3s;
-}
-
-.nav-links a:hover::after{
-    width:100%;
-}
-
-.nav-btn{
-    background:#0b1220;
-    color:#fff;
-    padding:13px 20px;
-    border-radius:50px;
-    font-size:13px;
-    font-weight:700;
-    cursor:pointer;
-}
-
-/* MAGNETIC */
-
-.magnetic{
-    transition:transform .25s cubic-bezier(.2,.8,.2,1);
-}
-
-/* HERO WITH BACKGROUND SLIDER */
-
-.hero{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    padding:150px 0 80px;
-    overflow:hidden;
-    position:relative;
-}
-
-.hero-bg-slider{
-    position:absolute;
-    inset:0;
-    z-index:0;
-}
-
-.hero-slide{
-    position:absolute;
-    inset:0;
-    background-size:cover;
-    background-position:center;
-    opacity:0;
-    transition:opacity 1.5s ease-in-out;
-}
-
-.hero-slide.active{
-    opacity:1;
-}
-
-.hero-slide::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:linear-gradient(135deg, rgba(255,255,255,0.92), rgba(244,248,255,0.88));
-}
-
-.hero .container{
-    position:relative;
-    z-index:2;
-}
-
-.hero-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:70px;
-    align-items:center;
-}
-
-.hero-eyebrow{
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
-    padding:8px 13px;
-    border-radius:50px;
-    background:#edf4ff;
-    color:var(--blue);
-    font-size:12px;
-    font-weight:700;
-    margin-bottom:25px;
-}
-
-.hero-eyebrow i{
-    width:7px;
-    height:7px;
-    border-radius:50%;
-    background:#1bd36b;
-    box-shadow:0 0 12px #1bd36b;
-}
-
-.hero h1{
-    font-family:"Manrope",sans-serif;
-    font-size:clamp(54px,7vw,92px);
-    line-height:.95;
-    letter-spacing:-5px;
-    font-weight:800;
-    max-width:700px;
-}
-
-.hero h1 span{
-    color:var(--blue);
-}
-
-.hero-text{
-    margin-top:28px;
-    max-width:560px;
-    color:var(--muted);
-    font-size:18px;
-    line-height:1.75;
-}
-
-.hero-actions{
-    display:flex;
-    gap:15px;
-    margin-top:35px;
-}
-
-.primary-btn,
-.secondary-btn{
-    border:0;
-    padding:17px 25px;
-    border-radius:50px;
-    font-size:14px;
-    font-weight:700;
-    cursor:pointer;
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
-}
-
-.primary-btn{
-    background:var(--blue);
-    color:#fff;
-    box-shadow:0 18px 35px rgba(20,99,255,.25);
-}
-
-.secondary-btn{
-    background:#fff;
-    border:1px solid var(--border);
-}
-
-.hero-note{
-    margin-top:24px;
-    display:flex;
-    align-items:center;
-    gap:10px;
-    color:#788398;
-    font-size:12px;
-}
-
-.hero-note span{
-    width:6px;
-    height:6px;
-    background:#18bf65;
-    border-radius:50%;
-}
-
-/* HERO VISUAL */
-
-.hero-visual{
-    position:relative;
-    height:580px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.hero-image-wrap{
-    position:relative;
-    width:90%;
-    height:480px;
-    border-radius:40px;
-    overflow:hidden;
-    box-shadow:0 40px 90px rgba(28,65,130,.20);
-    transform:rotate(2deg);
-    border:8px solid rgba(255,255,255,.8);
-}
-
-.hero-image-wrap::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:
-        linear-gradient(
-            120deg,
-            rgba(255,255,255,.25),
-            transparent 40%,
-            rgba(20,99,255,.08)
-        );
-    pointer-events:none;
-}
-
-.hero-image{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    filter:brightness(1.16) contrast(.96) saturate(1.08);
-}
-
-.floating-card{
-    position:absolute;
-    background:rgba(255,255,255,.92);
-    backdrop-filter:blur(15px);
-    border:1px solid rgba(255,255,255,.9);
-    border-radius:22px;
-    box-shadow:0 25px 60px rgba(20,50,100,.16);
-    padding:18px;
-    z-index:4;
-}
-
-.card-top{
-    top:65px;
-    left:0;
-    display:flex;
-    align-items:center;
-    gap:12px;
-}
-
-.card-icon{
-    width:43px;
-    height:43px;
-    border-radius:14px;
-    background:#eaf2ff;
-    display:grid;
-    place-items:center;
-    color:var(--blue);
-    font-weight:800;
-}
-
-.card-small{
-    font-size:11px;
-    color:#7b8495;
-}
-
-.card-bold{
-    font-weight:800;
-    font-size:14px;
-}
-
-.card-bottom{
-    right:0;
-    bottom:65px;
-}
-
-.card-bottom strong{
-    font-size:30px;
-    color:var(--blue);
-}
-
-/* MARQUEE */
-
-.marquee{
-    overflow:hidden;
-    background:#0b1220;
-    color:#fff;
-    padding:22px 0;
-    white-space:nowrap;
-}
-
-.marquee-track{
-    display:inline-flex;
-    gap:45px;
-    animation:marquee 25s linear infinite;
-}
-
-.marquee-item{
-    font-family:"Manrope";
-    font-size:18px;
-    font-weight:700;
-    display:flex;
-    align-items:center;
-    gap:30px;
-}
-
-.marquee-item span{
-    color:#5290ff;
-}
-
-@keyframes marquee{
-    from{transform:translateX(0)}
-    to{transform:translateX(-50%)}
-}
-
-/* SERVICES WITH IMAGES */
-
-.services{
-    background:#fff;
-}
-
-.services-grid{
-    margin-top:65px;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:25px;
-}
-
-.service-card{
-    background:#f8faff;
-    border:1px solid var(--border);
-    border-radius:var(--radius);
-    overflow:hidden;
-    transition:transform .45s,box-shadow .45s,background .45s;
-    position:relative;
-}
-
-.service-card-img{
-    height:180px;
-    width:100%;
-    position:relative;
-    overflow:hidden;
-}
-
-.service-card-img img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    transition:transform .5s;
-}
-
-.service-card:hover .service-card-img img{
-    transform:scale(1.1);
-}
-
-.service-card-content{
-    padding:30px;
-}
-
-.service-card:hover{
-    transform:translateY(-12px);
-    background:#fff;
-    box-shadow:var(--shadow);
-}
-
-.service-number{
-    font-size:12px;
-    color:var(--blue);
-    font-weight:800;
-    margin-bottom:15px;
-}
-
-.service-card h3{
-    font-family:"Manrope";
-    font-size:22px;
-    margin-bottom:10px;
-}
-
-.service-card p{
-    color:var(--muted);
-    line-height:1.7;
-    font-size:14px;
-}
-
-
-/* =========================================================
-   DIGITAL MARKETING
-========================================================= */
-
-.digital-marketing{
-    background:
-        radial-gradient(circle at 85% 20%,rgba(20,99,255,.10),transparent 34%),
-        #f5f8fd;
-    overflow:hidden;
-}
-
-.marketing-intro{
-    display:grid;
-    grid-template-columns:1.05fr .95fr;
-    gap:80px;
-    align-items:center;
-    margin-top:65px;
-}
-
-.marketing-copy h3{
-    font-family:"Manrope";
-    font-size:clamp(32px,4vw,52px);
-    line-height:1.05;
-    letter-spacing:-2px;
-    margin-bottom:22px;
-}
-
-.marketing-copy h3 span{
-    color:var(--blue);
-}
-
-.marketing-copy p{
-    color:var(--muted);
-    font-size:17px;
-    line-height:1.8;
-    max-width:650px;
-}
-
-.marketing-points{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:14px;
-    margin-top:30px;
-}
-
-.marketing-point{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    font-size:14px;
-    font-weight:700;
-}
-
-.marketing-point .check{
-    flex-shrink:0;
-}
-
-.marketing-visual{
-    position:relative;
-    min-height:500px;
-}
-
-.marketing-main-image{
-    height:470px;
-    border-radius:34px;
-    overflow:hidden;
-    box-shadow:0 35px 90px rgba(22,55,110,.16);
-    transform:rotate(2deg);
-    border:8px solid rgba(255,255,255,.85);
-}
-
-.marketing-main-image img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
-.marketing-float{
-    position:absolute;
-    background:rgba(255,255,255,.94);
-    backdrop-filter:blur(18px);
-    border:1px solid rgba(255,255,255,.9);
-    border-radius:20px;
-    padding:18px 20px;
-    box-shadow:0 20px 55px rgba(20,50,100,.15);
-    z-index:3;
-}
-
-.marketing-float.top{
-    top:35px;
-    left:-25px;
-}
-
-.marketing-float.bottom{
-    right:-20px;
-    bottom:35px;
-}
-
-.marketing-float small{
-    display:block;
-    color:#7b8495;
-    font-size:11px;
-    margin-bottom:5px;
-}
-
-.marketing-float strong{
-    font-family:"Manrope";
-    font-size:18px;
-}
-
-.marketing-services{
-    margin-top:90px;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:18px;
-}
-
-.marketing-service{
-    background:#fff;
-    border:1px solid var(--border);
-    border-radius:25px;
-    padding:28px;
-    min-height:250px;
-    transition:.45s;
-    position:relative;
-    overflow:hidden;
-}
-
-.marketing-service::before{
-    content:"";
-    position:absolute;
-    width:130px;
-    height:130px;
-    border-radius:50%;
-    background:rgba(20,99,255,.08);
-    right:-55px;
-    top:-55px;
-    transition:.45s;
-}
-
-.marketing-service:hover{
-    transform:translateY(-10px);
-    box-shadow:var(--shadow);
-}
-
-.marketing-service:hover::before{
-    transform:scale(1.5);
-}
-
-.marketing-icon{
-    width:50px;
-    height:50px;
-    border-radius:16px;
-    background:#eaf2ff;
-    color:var(--blue);
-    display:grid;
-    place-items:center;
-    font-size:20px;
-    font-weight:800;
-    margin-bottom:25px;
-    position:relative;
-    z-index:1;
-}
-
-.marketing-service h4{
-    font-family:"Manrope";
-    font-size:19px;
-    margin-bottom:10px;
-    position:relative;
-    z-index:1;
-}
-
-.marketing-service p{
-    color:var(--muted);
-    font-size:13px;
-    line-height:1.7;
-    position:relative;
-    z-index:1;
-}
-
-.ads-strip{
-    margin-top:25px;
-    padding:25px;
-    border-radius:25px;
-    background:#0b1220;
-    color:#fff;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:30px;
-}
-
-.ads-strip-copy h4{
-    font-family:"Manrope";
-    font-size:21px;
-    margin-bottom:7px;
-}
-
-.ads-strip-copy p{
-    color:#9eabc0;
-    font-size:13px;
-    line-height:1.6;
-}
-
-.ads-platforms{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-    justify-content:flex-end;
-}
-
-.ads-platform{
-    padding:11px 16px;
-    border:1px solid rgba(255,255,255,.14);
-    border-radius:50px;
-    font-size:12px;
-    font-weight:800;
-    background:rgba(255,255,255,.05);
-}
-
-@media(max-width:1000px){
-    .marketing-intro{
-        grid-template-columns:1fr;
-        gap:50px;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AURA BLIND AND WALLPAPER — premium custom blinds, wallpapers and interior styling for homes, mandirs, kids rooms and furniture spaces." />
+  <meta name="theme-color" content="#11100f" />
+  <title>AURA BLIND AND WALLPAPER | Custom Interiors</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --ink:#171412;
+      --soft:#f6f1e9;
+      --paper:#fbf9f5;
+      --gold:#b88a45;
+      --gold2:#d8b37a;
+      --line:rgba(23,20,18,.13);
+      --muted:#706861;
+      --white:#fff;
+      --shadow:0 24px 70px rgba(27,18,11,.12);
+      --radius:28px;
+      --max:1240px;
     }
 
-    .marketing-services{
-        grid-template-columns:1fr 1fr;
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:"DM Sans",sans-serif;
+      color:var(--ink);
+      background:var(--paper);
+      overflow-x:hidden;
+    }
+    body.locked{overflow:hidden}
+    img{width:100%;display:block}
+    a{text-decoration:none;color:inherit}
+    button,input,textarea{font:inherit}
+    ::selection{background:var(--gold);color:#fff}
+
+    /* PRELOADER */
+    #preloader{
+      position:fixed;inset:0;z-index:9999;background:#12100e;
+      display:grid;place-items:center;color:#fff;
+      transition:opacity .7s ease,visibility .7s ease;
+    }
+    #preloader.hide{opacity:0;visibility:hidden;pointer-events:none}
+    .loader-inner{text-align:center}
+    .loader-mark{
+      width:72px;height:72px;border:1px solid rgba(216,179,122,.35);
+      border-top-color:var(--gold2);border-radius:50%;
+      animation:spin 1.1s linear infinite;margin:auto auto 22px;
+    }
+    .loader-brand{font-family:"Cormorant Garamond",serif;font-size:30px;letter-spacing:4px}
+    .loader-sub{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#bdb4aa;margin-top:6px}
+    @keyframes spin{to{transform:rotate(360deg)}}
+
+    /* NAV */
+    .nav-wrap{
+      position:fixed;top:0;left:0;right:0;z-index:1000;
+      padding:16px 22px;transition:.35s ease;
+    }
+    .nav-wrap.scrolled{padding:10px 22px}
+    .nav{
+      max-width:var(--max);margin:auto;
+      min-height:68px;padding:0 22px;
+      display:flex;align-items:center;justify-content:space-between;gap:20px;
+      border:1px solid rgba(255,255,255,.17);
+      background:rgba(16,14,12,.42);backdrop-filter:blur(18px);
+      border-radius:18px;color:#fff;transition:.35s;
+    }
+    .nav-wrap.scrolled .nav{background:rgba(16,14,12,.88);border-color:rgba(255,255,255,.1)}
+    .brand{display:flex;align-items:center;gap:11px}
+    .brand-logo{
+      width:42px;height:42px;border-radius:50%;
+      border:1px solid rgba(216,179,122,.75);display:grid;place-items:center;
+      font-family:"Cormorant Garamond",serif;font-size:21px;color:#f1d3a1;
+    }
+    .brand-copy strong{display:block;font-size:12px;letter-spacing:2px}
+    .brand-copy span{display:block;font-size:8px;letter-spacing:2.4px;color:#c7bdb3;margin-top:2px}
+    .nav-links{display:flex;align-items:center;gap:27px;font-size:12px}
+    .nav-links a{color:#eee;position:relative}
+    .nav-links a:after{
+      content:"";position:absolute;left:0;right:100%;bottom:-7px;height:1px;background:var(--gold2);transition:.3s;
+    }
+    .nav-links a:hover:after{right:0}
+    .nav-cta{padding:12px 17px!important;border:1px solid rgba(216,179,122,.55);border-radius:999px;color:#fff!important}
+    .menu-btn{display:none;border:0;background:none;color:#fff;font-size:25px;cursor:pointer}
+
+    /* HERO */
+    .hero{min-height:100vh;position:relative;color:#fff;display:flex;align-items:flex-end;overflow:hidden;background:#15120f}
+    .hero-media{position:absolute;inset:0}
+    .hero-media img{height:100%;object-fit:cover;filter:saturate(.84)}
+    .hero-media:after{
+      content:"";position:absolute;inset:0;
+      background:
+        linear-gradient(90deg,rgba(10,8,7,.78) 0%,rgba(10,8,7,.36) 47%,rgba(10,8,7,.18) 100%),
+        linear-gradient(0deg,rgba(10,8,7,.82) 0%,transparent 55%);
+    }
+    .hero-content{position:relative;z-index:2;width:100%;max-width:var(--max);margin:auto;padding:160px 24px 92px}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#e2c18e}
+    .eyebrow:before{content:"";width:34px;height:1px;background:var(--gold2)}
+    h1,h2,h3{font-family:"Cormorant Garamond",serif;font-weight:600}
+    h1{font-size:clamp(55px,8vw,112px);line-height:.86;letter-spacing:-3px;max-width:820px;margin:22px 0}
+    .hero-copy{font-size:16px;line-height:1.75;color:#e6e0da;max-width:600px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .btn{
+      position:relative;display:inline-flex;align-items:center;justify-content:center;gap:9px;
+      padding:14px 21px;border-radius:999px;border:1px solid var(--line);
+      transition:transform .18s ease,background .3s,color .3s,border .3s;cursor:pointer;
+      will-change:transform;overflow:hidden;
+    }
+    .btn-dark{background:#fff;color:#171412;border-color:#fff}
+    .btn-outline{color:#fff;border-color:rgba(255,255,255,.35)}
+    .btn-gold{background:var(--gold);color:#fff;border-color:var(--gold)}
+    .btn:hover{transform:translateY(-2px)}
+    .hero-note{margin-top:35px;font-size:11px;letter-spacing:1.5px;color:#bdb4aa}
+
+    /* GENERAL */
+    .section{padding:120px 24px}
+    .container{max-width:var(--max);margin:auto}
+    .section-head{display:flex;justify-content:space-between;gap:35px;align-items:flex-end;margin-bottom:52px}
+    .section-kicker{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#92724c;margin-bottom:13px}
+    .section-title{font-size:clamp(42px,5vw,72px);line-height:.95;letter-spacing:-1.5px}
+    .section-intro{max-width:420px;color:var(--muted);line-height:1.8;font-size:14px}
+
+    /* INTRO */
+    .intro-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:center}
+    .intro-visual{position:relative}
+    .intro-visual img{height:620px;object-fit:cover;border-radius:var(--radius)}
+    .floating-tag{
+      position:absolute;right:-28px;bottom:34px;background:#fff;padding:24px 25px;
+      border-radius:18px;box-shadow:var(--shadow);max-width:205px;
+    }
+    .floating-tag b{font-family:"Cormorant Garamond",serif;font-size:31px;display:block}
+    .floating-tag span{font-size:11px;color:var(--muted);line-height:1.5}
+    .intro-text p{color:var(--muted);line-height:1.9;font-size:15px;margin:22px 0}
+    .mini-points{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px}
+    .mini-point{border-top:1px solid var(--line);padding-top:16px}
+    .mini-point b{font-size:12px;display:block;margin-bottom:5px}
+    .mini-point span{font-size:11px;color:var(--muted)}
+
+    /* SERVICES */
+    .services{background:#171412;color:#fff}
+    .services .section-intro{color:#bdb5ae}
+    .service-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}
+    .service-card{position:relative;min-height:420px;border-radius:22px;overflow:hidden;background:#2a2521}
+    .service-card img{height:100%;object-fit:cover;transition:transform .8s ease}
+    .service-card:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.83),rgba(0,0,0,.05) 65%)}
+    .service-card:hover img{transform:scale(1.06)}
+    .service-content{position:absolute;z-index:2;left:23px;right:20px;bottom:22px}
+    .service-no{font-size:10px;letter-spacing:2px;color:#e1bf89}
+    .service-content h3{font-size:34px;margin:7px 0}
+    .service-content p{font-size:11px;line-height:1.6;color:#ddd5ce;max-width:240px}
+
+    /* COLLECTION */
+    .collection-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:15px}
+    .collection-card{position:relative;overflow:hidden;border-radius:22px;min-height:390px}
+    .collection-card:nth-child(1){grid-column:span 7}
+    .collection-card:nth-child(2){grid-column:span 5}
+    .collection-card:nth-child(3){grid-column:span 5}
+    .collection-card:nth-child(4){grid-column:span 7}
+    .collection-card img{height:100%;object-fit:cover;transition:transform .7s}
+    .collection-card:hover img{transform:scale(1.045)}
+    .collection-overlay{position:absolute;inset:auto 0 0;padding:27px;background:linear-gradient(0deg,rgba(0,0,0,.72),transparent);color:#fff}
+    .collection-overlay h3{font-size:34px}
+    .collection-overlay p{font-size:11px;color:#eee;margin-top:5px}
+
+    /* PROCESS */
+    .process{background:var(--soft)}
+    .process-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+    .process-step{padding:34px 24px 20px;border-right:1px solid var(--line);min-height:225px}
+    .process-step:last-child{border-right:0}
+    .step-num{font-size:10px;letter-spacing:2px;color:#a27b4d}
+    .process-step h3{font-size:32px;margin:35px 0 9px}
+    .process-step p{font-size:12px;color:var(--muted);line-height:1.7}
+
+    /* SHOWCASE */
+    .showcase{background:#fff}
+    .showcase-wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:center}
+    .showcase-image{height:650px;border-radius:28px;overflow:hidden}
+    .showcase-image img{height:100%;object-fit:cover}
+    .feature-list{margin-top:35px}
+    .feature{
+      display:grid;grid-template-columns:42px 1fr;gap:15px;
+      padding:20px 0;border-bottom:1px solid var(--line)
+    }
+    .feature-icon{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;color:#a07845}
+    .feature h3{font-size:25px;margin-bottom:5px}
+    .feature p{font-size:11px;color:var(--muted);line-height:1.6}
+
+    /* TESTIMONIALS */
+    .reviews{background:#141210;color:#fff}
+    .reviews .section-intro{color:#bcb4ac}
+    .review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .review{padding:31px;border:1px solid rgba(255,255,255,.1);border-radius:22px;background:rgba(255,255,255,.035)}
+    .stars{color:#d6aa69;letter-spacing:4px;font-size:13px}
+    .review p{font-family:"Cormorant Garamond",serif;font-size:27px;line-height:1.18;margin:25px 0 30px;color:#f1ece6}
+    .review small{color:#aaa198;font-size:10px;letter-spacing:1.5px;text-transform:uppercase}
+
+    /* FAQ */
+    .faq-wrap{max-width:920px;margin:auto}
+    .faq{border-top:1px solid var(--line)}
+    .faq-item{border-bottom:1px solid var(--line)}
+    .faq-q{width:100%;background:none;border:0;padding:25px 0;display:flex;justify-content:space-between;gap:20px;text-align:left;cursor:pointer;font-size:15px;font-weight:600;color:var(--ink)}
+    .faq-q span:last-child{font-size:23px;font-weight:400;transition:.3s}
+    .faq-item.open .faq-q span:last-child{transform:rotate(45deg)}
+    .faq-a{max-height:0;overflow:hidden;transition:max-height .45s ease}
+    .faq-a p{padding:0 40px 24px 0;color:var(--muted);font-size:13px;line-height:1.8}
+
+    /* CTA */
+    .cta{padding:110px 24px}
+    .cta-box{
+      max-width:var(--max);margin:auto;position:relative;overflow:hidden;
+      padding:75px 70px;border-radius:30px;background:#211c18;color:#fff;
+      background-image:linear-gradient(90deg,rgba(22,18,14,.95),rgba(22,18,14,.55)),url("https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1800&q=85");
+      background-size:cover;background-position:center;
+    }
+    .cta-box h2{font-size:clamp(44px,6vw,80px);line-height:.92;max-width:700px}
+    .cta-box p{max-width:550px;color:#d4ccc4;line-height:1.7;margin:20px 0 27px;font-size:14px}
+
+    /* FOOTER */
+    footer{background:#0f0d0b;color:#b8afa7;padding:65px 24px 28px}
+    .footer-grid{max-width:var(--max);margin:auto;display:grid;grid-template-columns:1.3fr .7fr .8fr;gap:50px}
+    footer h3{font-size:36px;color:#fff;margin-bottom:12px}
+    footer p{font-size:12px;line-height:1.8;max-width:430px}
+    .footer-title{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#d7b17a;margin-bottom:17px}
+    .footer-links{display:grid;gap:10px;font-size:12px}
+    .footer-bottom{max-width:var(--max);margin:45px auto 0;padding-top:20px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;gap:20px;font-size:10px;color:#77706a}
+
+    /* FLOATING CONTACT */
+    .float-stack{position:fixed;right:19px;bottom:20px;z-index:900;display:grid;gap:10px}
+    .float-btn{
+      width:54px;height:54px;border-radius:50%;display:grid;place-items:center;color:#fff;
+      box-shadow:0 13px 30px rgba(0,0,0,.2);transition:transform .2s ease;
+      will-change:transform;
+    }
+    .float-call{background:#1b1917}
+    .float-wa{background:#1e9d5a}
+    .float-btn svg{width:22px;height:22px;fill:currentColor}
+
+    /* REVEAL */
+    .reveal{opacity:0;transform:translateY(45px);transition:opacity .85s ease,transform .85s cubic-bezier(.2,.7,.2,1)}
+    .reveal-left{opacity:0;transform:translateX(-50px);transition:opacity .85s ease,transform .85s cubic-bezier(.2,.7,.2,1)}
+    .reveal-right{opacity:0;transform:translateX(50px);transition:opacity .85s ease,transform .85s cubic-bezier(.2,.7,.2,1)}
+    .visible{opacity:1!important;transform:none!important}
+    .delay-1{transition-delay:.08s}.delay-2{transition-delay:.16s}.delay-3{transition-delay:.24s}.delay-4{transition-delay:.32s}
+
+    @media(max-width:980px){
+      .nav-links{position:absolute;top:76px;left:12px;right:12px;padding:20px;display:none;flex-direction:column;align-items:stretch;background:#171412;border:1px solid rgba(255,255,255,.1);border-radius:18px}
+      .nav-links.open{display:flex}
+      .menu-btn{display:block}
+      .nav-cta{text-align:center}
+      .intro-grid,.showcase-wrap{grid-template-columns:1fr}
+      .service-grid{grid-template-columns:1fr 1fr}
+      .review-grid{grid-template-columns:1fr}
+      .process-grid{grid-template-columns:1fr 1fr}
+      .footer-grid{grid-template-columns:1fr 1fr}
+      .showcase-image{height:520px}
     }
 
-    .marketing-visual{
-        max-width:700px;
-        width:100%;
-        margin:auto;
+    @media(max-width:680px){
+      .nav-wrap{padding:10px}
+      .nav{min-height:60px;padding:0 15px}
+      .brand-copy strong{font-size:10px}
+      .brand-copy span{font-size:7px}
+      .hero-content{padding:145px 20px 65px}
+      h1{font-size:57px;letter-spacing:-2px}
+      .section{padding:80px 18px}
+      .section-head{display:block;margin-bottom:32px}
+      .section-intro{margin-top:18px}
+      .intro-visual img{height:470px}
+      .floating-tag{right:10px;bottom:15px}
+      .service-grid{grid-template-columns:1fr}
+      .service-card{min-height:390px}
+      .collection-grid{display:grid;grid-template-columns:1fr}
+      .collection-card:nth-child(n){grid-column:auto;min-height:370px}
+      .process-grid{grid-template-columns:1fr}
+      .process-step{border-right:0;border-bottom:1px solid var(--line)}
+      .cta-box{padding:50px 28px}
+      .footer-grid{grid-template-columns:1fr}
+      .footer-bottom{display:block;line-height:1.8}
+      .footer-bottom span{display:block;margin-top:8px}
+      .float-stack{right:14px;bottom:14px}
     }
-
-    .ads-strip{
-        flex-direction:column;
-        align-items:flex-start;
-    }
-
-    .ads-platforms{
-        justify-content:flex-start;
-    }
-}
-
-@media(max-width:600px){
-    .marketing-points{
-        grid-template-columns:1fr;
-    }
-
-    .marketing-main-image{
-        height:370px;
-    }
-
-    .marketing-float.top{
-        left:5px;
-        top:20px;
-    }
-
-    .marketing-float.bottom{
-        right:5px;
-        bottom:20px;
-    }
-
-    .marketing-services{
-        grid-template-columns:1fr;
-    }
-
-    .ads-platforms{
-        display:grid;
-        grid-template-columns:1fr 1fr;
-        width:100%;
-    }
-
-    .ads-platform{
-        text-align:center;
-    }
-}
-
-
-/* STATS */
-
-.stats{
-    padding:80px 0;
-    background:#f3f7ff;
-}
-
-.stats-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:20px;
-}
-
-.stat{
-    padding:25px;
-    border-right:1px solid var(--border);
-}
-
-.stat:last-child{
-    border-right:0;
-}
-
-.stat-number{
-    font-family:"Manrope";
-    font-size:48px;
-    font-weight:800;
-    letter-spacing:-2px;
-    color:var(--blue);
-}
-
-.stat p{
-    margin-top:6px;
-    color:var(--muted);
-    font-size:14px;
-}
-
-/* FOUNDERS SECTION */
-
-.founders{
-    background:#fff;
-    padding:100px 0;
-}
-
-.founders-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:40px;
-    margin-top:60px;
-}
-
-.founder-card{
-    background:#f8faff;
-    border:1px solid var(--border);
-    border-radius:var(--radius);
-    padding:40px;
-    display:flex;
-    gap:30px;
-    align-items:center;
-    transition:.4s;
-}
-
-.founder-card:hover{
-    transform:translateY(-8px);
-    box-shadow:var(--shadow);
-    background:#fff;
-}
-
-.founder-img{
-    width:140px;
-    height:140px;
-    border-radius:24px;
-    overflow:hidden;
-    flex-shrink:0;
-    box-shadow:0 15px 35px rgba(20,99,255,0.15);
-}
-
-.founder-img img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
-.founder-info small{
-    color:var(--blue);
-    font-weight:800;
-    text-transform:uppercase;
-    letter-spacing:1px;
-    font-size:11px;
-}
-
-.founder-info h3{
-    font-family:"Manrope";
-    font-size:24px;
-    margin:6px 0 12px;
-}
-
-.founder-info p{
-    color:var(--muted);
-    font-size:14px;
-    line-height:1.6;
-}
-
-/* ABOUT */
-
-.about{
-    background:#f5f8fd;
-}
-
-.about-grid{
-    display:grid;
-    grid-template-columns:.9fr 1.1fr;
-    gap:100px;
-    align-items:center;
-}
-
-.about-image{
-    height:570px;
-    border-radius:35px;
-    overflow:hidden;
-    box-shadow:var(--shadow);
-}
-
-.about-image img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
-.about-content .section-copy{
-    margin-top:28px;
-    max-width:600px;
-}
-
-.about-list{
-    margin-top:35px;
-    display:grid;
-    gap:17px;
-}
-
-.about-list div{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    font-weight:600;
-}
-
-.check{
-    width:25px;
-    height:25px;
-    background:#e9f2ff;
-    color:var(--blue);
-    border-radius:50%;
-    display:grid;
-    place-items:center;
-    font-size:12px;
-}
-
-/* PORTFOLIO WITH SHOWCASE MODAL */
-
-.portfolio{
-    background:#fff;
-}
-
-.portfolio-grid{
-    margin-top:65px;
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:25px;
-}
-
-.project{
-    position:relative;
-    height:450px;
-    border-radius:30px;
-    overflow:hidden;
-    background:#ddd;
-    cursor:pointer;
-}
-
-.project img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    transition:transform .8s cubic-bezier(.2,.8,.2,1),filter .8s;
-}
-
-.project:hover img{
-    transform:scale(1.08);
-    filter:brightness(.65) saturate(1.1);
-}
-
-.project-info{
-    position:absolute;
-    left:25px;
-    right:25px;
-    bottom:25px;
-    color:#fff;
-    transform:translateY(25px);
-    opacity:0;
-    transition:.5s;
-}
-
-.project:hover .project-info{
-    transform:translateY(0);
-    opacity:1;
-}
-
-.project-info small{
-    opacity:.7;
-}
-
-.project-info h3{
-    font-family:"Manrope";
-    font-size:28px;
-    margin-top:5px;
-}
-
-/* SHOWCASE DETAILS MODAL */
-
-.showcase-modal-overlay{
-    position:fixed;
-    inset:0;
-    background:rgba(5,12,25,0.8);
-    backdrop-filter:blur(10px);
-    z-index:20000;
-    display:none;
-    align-items:center;
-    justify-content:center;
-    padding:20px;
-}
-
-.showcase-modal{
-    width:min(900px, 100%);
-    background:#fff;
-    border-radius:30px;
-    padding:40px;
-    max-height:90vh;
-    overflow-y:auto;
-    position:relative;
-    box-shadow:0 40px 100px rgba(0,0,0,0.4);
-}
-
-.showcase-close{
-    position:absolute;
-    top:25px;
-    right:25px;
-    width:40px;
-    height:40px;
-    border-radius:50%;
-    background:#f0f3f8;
-    border:0;
-    font-size:20px;
-    cursor:pointer;
-    display:grid;
-    place-items:center;
-}
-
-.showcase-gallery{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:15px;
-    margin-top:25px;
-}
-
-.showcase-gallery img{
-    height:220px;
-    width:100%;
-    object-fit:cover;
-    border-radius:18px;
-}
-
-/* STATEMENT */
-
-.statement{
-    padding:160px 0;
-    background:
-        radial-gradient(circle at 50% 50%,rgba(20,99,255,.12),transparent 50%),
-        #f5f8fd;
-    text-align:center;
-}
-
-.statement h2{
-    font-family:"Manrope";
-    font-size:clamp(45px,7vw,90px);
-    letter-spacing:-5px;
-    line-height:.98;
-    max-width:1000px;
-    margin:auto;
-}
-
-.statement h2 span{
-    color:var(--blue);
-}
-
-/* PROCESS */
-
-.process{
-    background:#fff;
-}
-
-.process-grid{
-    margin-top:70px;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:20px;
-}
-
-.process-card{
-    padding:30px;
-    border:1px solid var(--border);
-    border-radius:25px;
-    transition:.4s;
-}
-
-.process-card:hover{
-    border-color:rgba(20,99,255,.3);
-    transform:translateY(-8px);
-    box-shadow:var(--shadow);
-}
-
-.process-num{
-    color:var(--blue);
-    font-size:12px;
-    font-weight:800;
-    margin-bottom:50px;
-}
-
-.process-card h3{
-    font-family:"Manrope";
-    margin-bottom:12px;
-}
-
-.process-card p{
-    color:var(--muted);
-    font-size:14px;
-    line-height:1.7;
-}
-
-/* CLIENT REVIEWS / TESTIMONIALS */
-
-.testimonials{
-    background:#f5f8fd;
-    padding:120px 0;
-}
-
-.reviews-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:25px;
-    margin-top:60px;
-}
-
-.review-card{
-    background:#fff;
-    border:1px solid var(--border);
-    border-radius:var(--radius);
-    padding:35px;
-    box-shadow:var(--shadow);
-}
-
-.review-stars{
-    color:#ffb800;
-    font-size:16px;
-    margin-bottom:15px;
-}
-
-.review-card p{
-    color:var(--muted);
-    font-size:15px;
-    line-height:1.7;
-    margin-bottom:20px;
-}
-
-.review-author h4{
-    font-family:"Manrope";
-    font-size:16px;
-}
-
-.review-author span{
-    font-size:12px;
-    color:var(--muted);
-}
-
-/* FAQ */
-
-.faq{
-    background:#fff;
-}
-
-.faq-wrap{
-    max-width:850px;
-    margin:65px auto 0;
-}
-
-.faq-item{
-    border-bottom:1px solid var(--border);
-}
-
-.faq-question{
-    width:100%;
-    background:none;
-    border:0;
-    padding:25px 0;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    text-align:left;
-    font-size:17px;
-    font-weight:700;
-    cursor:pointer;
-}
-
-.faq-plus{
-    font-size:25px;
-    color:var(--blue);
-    transition:.3s;
-}
-
-.faq-answer{
-    max-height:0;
-    overflow:hidden;
-    transition:max-height .4s ease;
-    color:var(--muted);
-    line-height:1.8;
-    font-size:14px;
-}
-
-.faq-answer-inner{
-    padding-bottom:25px;
-}
-
-.faq-item.active .faq-plus{
-    transform:rotate(45deg);
-}
-
-.faq-item.active .faq-answer{
-    max-height:200px;
-}
-
-/* CTA */
-
-.cta{
-    padding:120px 0;
-    background:linear-gradient(135deg,#0b1220,#10285c);
-    color:#fff;
-    overflow:hidden;
-}
-
-.cta::before{
-    content:"";
-    position:absolute;
-    width:500px;
-    height:500px;
-    border-radius:50%;
-    background:rgba(20,99,255,.35);
-    filter:blur(90px);
-    right:-150px;
-    top:-200px;
-}
-
-.cta-inner{
-    position:relative;
-    z-index:2;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:40px;
-}
-
-.cta h2{
-    font-family:"Manrope";
-    font-size:clamp(40px,5vw,68px);
-    letter-spacing:-3px;
-    line-height:1;
-}
-
-.cta p{
-    color:#aebbd3;
-    margin-top:18px;
-    max-width:550px;
-    line-height:1.7;
-}
-
-.cta .primary-btn{
-    background:#fff;
-    color:#0b1220;
-    flex-shrink:0;
-}
-
-/* FOOTER WITH NORMAL ICONS */
-
-footer{
-    background:#080d17;
-    color:#fff;
-    padding:55px 0 25px;
-}
-
-.footer-top{
-    display:flex;
-    justify-content:space-between;
-    gap:50px;
-    padding-bottom:50px;
-    border-bottom:1px solid rgba(255,255,255,.1);
-}
-
-.footer-brand p{
-    color:#7d899f;
-    max-width:400px;
-    margin-top:18px;
-    line-height:1.7;
-}
-
-.footer-links{
-    display:flex;
-    gap:80px;
-}
-
-.footer-col h4{
-    font-size:13px;
-    margin-bottom:20px;
-    color:#fff;
-}
-
-.footer-col a{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    color:#7d899f;
-    font-size:13px;
-    margin-bottom:12px;
-    transition:.3s;
-}
-
-.footer-col a:hover{
-    color:#fff;
-}
-
-.footer-bottom{
-    padding-top:25px;
-    display:flex;
-    justify-content:space-between;
-    color:#66738b;
-    font-size:12px;
-}
-
-.footer-credit{
-    color:#9ebcff;
-}
-
-/* FLOATING BUTTONS (WHATSAPP & CALL) WITH NORMAL ICONS */
-
-.floating-buttons{
-    position:fixed;
-    right:25px;
-    bottom:25px;
-    display:flex;
-    flex-direction:column;
-    gap:12px;
-    z-index:1000;
-}
-
-.float-btn{
-    width:55px;
-    height:55px;
-    border-radius:50%;
-    color:white;
-    display:grid;
-    place-items:center;
-    font-size:22px;
-    box-shadow:0 15px 35px rgba(0,0,0,.2);
-    transition:.3s;
-}
-
-.float-btn.whatsapp{
-    background:#25d366;
-}
-
-.float-btn.call{
-    background:#1463ff;
-}
-
-.float-btn:hover{
-    transform:scale(1.1);
-}
-
-/* DRAWER */
-
-.overlay{
-    position:fixed;
-    inset:0;
-    background:rgba(0,10,25,.45);
-    backdrop-filter:blur(8px);
-    z-index:1500;
-    opacity:0;
-    visibility:hidden;
-    transition:.4s;
-}
-
-.overlay.active{
-    opacity:1;
-    visibility:visible;
-}
-
-.drawer{
-    position:fixed;
-    right:0;
-    top:0;
-    width:min(500px,100%);
-    height:100%;
-    background:#fff;
-    z-index:1600;
-    padding:40px;
-    transform:translateX(100%);
-    transition:.5s cubic-bezier(.2,.8,.2,1);
-    overflow:auto;
-}
-
-.drawer.active{
-    transform:translateX(0);
-}
-
-.drawer-close{
-    width:40px;
-    height:40px;
-    border-radius:50%;
-    border:1px solid var(--border);
-    background:#fff;
-    cursor:pointer;
-    float:right;
-    font-size:20px;
-}
-
-.drawer h2{
-    clear:both;
-    padding-top:60px;
-    font-family:"Manrope";
-    font-size:40px;
-    letter-spacing:-2px;
-}
-
-.drawer p{
-    color:var(--muted);
-    margin-top:12px;
-    line-height:1.7;
-}
-
-.form{
-    margin-top:35px;
-}
-
-.form input,
-.form textarea,
-.form select{
-    width:100%;
-    padding:16px 18px;
-    border-radius:15px;
-    border:1px solid var(--border);
-    outline:none;
-    margin-bottom:14px;
-    font-family:inherit;
-    background:#f9fbff;
-    transition:.3s;
-}
-
-.form input:focus,
-.form textarea:focus,
-.form select:focus{
-    border-color:var(--blue);
-    background:#fff;
-    box-shadow:0 0 0 4px rgba(20,99,255,.08);
-}
-
-.form textarea{
-    min-height:130px;
-    resize:vertical;
-}
-
-.form button{
-    width:100%;
-    border:0;
-    padding:17px;
-    border-radius:15px;
-    background:var(--blue);
-    color:#fff;
-    font-weight:800;
-    cursor:pointer;
-}
-
-/* REVEAL */
-
-.reveal{
-    opacity:0;
-    transform:translateY(70px) scale(.97);
-    filter:blur(8px);
-    transition:
-        opacity 1s cubic-bezier(.2,.8,.2,1),
-        transform 1s cubic-bezier(.2,.8,.2,1),
-        filter 1s ease;
-    transition-delay:var(--delay,0s);
-}
-
-.reveal-left{
-    opacity:0;
-    transform:translateX(-80px);
-    filter:blur(8px);
-    transition:
-        opacity 1s cubic-bezier(.2,.8,.2,1),
-        transform 1s cubic-bezier(.2,.8,.2,1),
-        filter 1s ease;
-}
-
-.reveal-right{
-    opacity:0;
-    transform:translateX(80px);
-    filter:blur(8px);
-    transition:
-        opacity 1s cubic-bezier(.2,.8,.2,1),
-        transform 1s cubic-bezier(.2,.8,.2,1),
-        filter 1s ease;
-}
-
-.reveal.active,
-.reveal-left.active,
-.reveal-right.active{
-    opacity:1;
-    transform:translate(0) scale(1);
-    filter:blur(0);
-}
-
-/* RESPONSIVE */
-
-@media(max-width:900px){
-    .nav-links{display:none;}
-    .hero-grid, .about-grid, .founders-grid, .reviews-grid{grid-template-columns:1fr; gap:50px;}
-    .hero{padding-top:130px;}
-    .hero h1{font-size:60px;}
-    .hero-visual{height:450px;}
-    .hero-image-wrap{height:390px;}
-    .services-grid, .stats-grid, .process-grid{grid-template-columns:1fr 1fr;}
-    .cta-inner{flex-direction:column; align-items:flex-start;}
-    .footer-top{flex-direction:column;}
-    .footer-links{gap:50px;}
-}
-
-@media(max-width:600px){
-    .container{width:min(100% - 28px,1180px);}
-    .section-space{padding:90px 0;}
-    .hero h1{font-size:50px; letter-spacing:-3px;}
-    .hero-text{font-size:16px;}
-    .hero-actions{flex-direction:column;}
-    .primary-btn, .secondary-btn{justify-content:center;}
-    .hero-visual{height:400px;}
-    .hero-image-wrap{width:100%; height:350px; border-radius:28px;}
-    .services-grid, .portfolio-grid, .process-grid, .stats-grid{grid-template-columns:1fr;}
-    .stat{border-right:0; border-bottom:1px solid var(--border);}
-    .about-image{height:400px;}
-    .project{height:350px;}
-    .statement{padding:100px 0;}
-    .statement h2{letter-spacing:-3px;}
-    .footer-links{flex-direction:column; gap:30px;}
-    .footer-bottom{flex-direction:column; gap:10px;}
-    .drawer{padding:25px;}
-}
-
-</style>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7708813861453648"
-     crossorigin="anonymous"></script>
+  </style>
 </head>
 
-<body>
+<body class="locked">
 
-<div class="cursor-glow"></div>
+  <div id="preloader">
+    <div class="loader-inner">
+      <div class="loader-mark"></div>
+      <div class="loader-brand">AURA BLIND</div>
+      <div class="loader-sub">Wallpaper • Blinds • Interiors</div>
+    </div>
+  </div>
 
-<!-- ======================================================
-     NAVBAR
-====================================================== -->
+  <header class="nav-wrap" id="nav">
+    <nav class="nav">
+      <a href="#home" class="brand">
+        <div class="brand-logo">A</div>
+        <div class="brand-copy">
+          <strong>AURA BLIND</strong>
+          <span>WALLPAPER & INTERIORS</span>
+        </div>
+      </a>
 
-<header class="navbar">
-<div class="container nav-inner">
-<a href="#" class="logo">
-    <div class="logo-mark">M</div>
-    <span data-admin-editable>Marwar Infotech</span>
-</a>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#collections">Collections</a>
+        <a href="#process">Process</a>
+        <a href="#faq">FAQ</a>
+        <a class="nav-cta magnetic" href="https://wa.me/919589891883?text=Hello%20AURA%20BLIND%20AND%20WALLPAPER%2C%20I%20want%20a%20free%20design%20consultation.">WhatsApp Us</a>
+      </div>
 
-<nav class="nav-links">
-<a href="#services">Services</a>
-<a href="#digital-marketing">Marketing</a>
-<a href="#about">About</a>
-<a href="#founders">Founders</a>
-<a href="#work">Work</a>
-<a href="#process">Process</a>
-<a href="#reviews">Reviews</a>
-<a href="#faq">FAQ</a>
-</nav>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+    </nav>
+  </header>
 
-<button class="nav-btn magnetic" onclick="openDrawer()">Let's Talk</button>
-</div>
-</header>
-
-
-<!-- ======================================================
-     HERO WITH AUTO-SLIDING BACKGROUND IMAGES
-====================================================== -->
-
-<section class="hero">
-<div class="hero-bg-slider" id="heroSlider">
-    <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1600&q=90')"></div>
-    <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1600&q=90')"></div>
-    <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1600&q=90')"></div>
-</div>
-
-<div class="container hero-grid">
-<div class="hero-content reveal-left">
-<div class="hero-eyebrow" data-admin-editable>
-    <i></i>Digital Experiences That Stand Out
-</div>
-
-<h1 data-admin-editable>
-    We build <span>websites</span> people remember.
-</h1>
-
-<p class="hero-text" data-admin-editable>
-    Marwar Infotech creates premium, modern and conversion-focused digital experiences for businesses that want to look different from everyone else.
-</p>
-
-<div class="hero-actions">
-<button class="primary-btn magnetic" onclick="openDrawer()">Start a Project →</button>
-<a href="#work" class="secondary-btn magnetic">Explore Our Work</a>
-</div>
-
-<div class="hero-note" data-admin-editable>
-<span></span>Available for selected projects
-</div>
-</div>
-
-<div class="hero-visual reveal-right">
-<div class="hero-image-wrap">
-<img class="hero-image" src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1400&q=90" alt="Creative digital design">
-</div>
-
-<div class="floating-card card-top">
-<div class="card-icon">✦</div>
-<div>
-<div class="card-small">Design</div>
-<div class="card-bold">Premium UI / UX</div>
-</div>
-</div>
-
-<div class="floating-card card-bottom">
-<div class="card-small">Digital Growth</div>
-<strong>∞</strong>
-</div>
-</div>
-</div>
-</section>
-
-
-<!-- ======================================================
-     MARQUEE
-====================================================== -->
-
-<div class="marquee">
-<div class="marquee-track">
-<div class="marquee-item">Web Design <span>✦</span></div>
-<div class="marquee-item">Creative Development <span>✦</span></div>
-<div class="marquee-item">UI / UX <span>✦</span></div>
-<div class="marquee-item">Digital Experiences <span>✦</span></div>
-<div class="marquee-item">Brand Websites <span>✦</span></div>
-<div class="marquee-item">Web Design <span>✦</span></div>
-<div class="marquee-item">Creative Development <span>✦</span></div>
-<div class="marquee-item">UI / UX <span>✦</span></div>
-</div>
-</div>
-
-
-<!-- ======================================================
-     SERVICES (WITH IMAGES & TEXT OVERVIEW)
-====================================================== -->
-
-<section class="services section-space" id="services">
-<div class="container">
-<div class="reveal">
-<div class="section-label"><span></span>What We Do</div>
-<h2 class="section-title">Digital work with <span>character.</span></h2>
-<p class="section-copy" style="max-width:600px;margin-top:22px;">From strategy to final pixels, we create premium digital experiences—and now help businesses grow them through social media, paid advertising and conversion-focused campaigns.</p>
-</div>
-
-<div class="services-grid" id="servicesGrid">
-
-<div class="service-card reveal">
-<div class="service-card-img">
-<img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Website Design">
-</div>
-<div class="service-card-content">
-<div class="service-number">01</div>
-<h3>Website Design</h3>
-<p>Modern, premium and responsive websites designed around your brand and customers.</p>
-</div>
-</div>
-
-<div class="service-card reveal">
-<div class="service-card-img">
-<img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80" alt="UI / UX Design">
-</div>
-<div class="service-card-content">
-<div class="service-number">02</div>
-<h3>UI / UX Design</h3>
-<p>Beautiful interfaces with thoughtful interactions, motion and user experience.</p>
-</div>
-</div>
-
-<div class="service-card reveal">
-<div class="service-card-img">
-<img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80" alt="Creative Development">
-</div>
-<div class="service-card-content">
-<div class="service-number">03</div>
-<h3>Creative Development</h3>
-<p>High-performance front-end experiences with animations and advanced interactions.</p>
-</div>
-</div>
-
-<div class="service-card reveal">
-<div class="service-card-img">
-<img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Business Websites">
-</div>
-<div class="service-card-content">
-<div class="service-number">04</div>
-<h3>Business Websites</h3>
-<p>Professional websites built to make local and growing businesses look premium.</p>
-</div>
-</div>
-
-<div class="service-card reveal">
-<div class="service-card-img">
-<img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1000&q=85" alt="Landing Pages">
-</div>
-<div class="service-card-content">
-<div class="service-number">05</div>
-<h3>Landing Pages</h3>
-<p>Conversion-focused pages designed to turn visitors into enquiries and customers.</p>
-</div>
-</div>
-
-<div class="service-card reveal">
-<div class="service-card-img">
-<img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Digital Solutions">
-</div>
-<div class="service-card-content">
-<div class="service-number">06</div>
-<h3>Digital Solutions</h3>
-<p>Smart digital experiences tailored to the way your business actually works.</p>
-</div>
-</div>
-
-</div>
-</div>
-</section>
-
-
-<!-- ======================================================
-     DIGITAL MARKETING SECTION
-====================================================== -->
-
-<section class="digital-marketing section-space" id="digital-marketing">
-<div class="container">
-
-    <div class="reveal">
-        <div class="section-label"><span></span>Digital Marketing</div>
-        <h2 class="section-title">We don't just build your <span>website.</span></h2>
-        <p class="section-copy" style="max-width:720px;margin-top:22px;">
-            We help businesses build their digital presence, reach the right audience and turn attention into meaningful enquiries through social media, paid advertising and conversion-focused campaigns.
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-media">
+        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=2200&q=90" alt="Luxury interior with elegant window treatment">
+      </div>
+      <div class="hero-content">
+        <div class="eyebrow reveal">Custom interiors • Bhopal • Delhi</div>
+        <h1 class="reveal delay-1">Walls that<br><em>feel like you.</em></h1>
+        <p class="hero-copy reveal delay-2">
+          Premium custom blinds, statement wallpapers and thoughtful interior styling
+          designed around your room, your furniture and your personality.
         </p>
+        <div class="hero-actions reveal delay-3">
+          <a href="#collections" class="btn btn-dark magnetic">Explore Collections ↗</a>
+          <a href="tel:+919589891883" class="btn btn-outline magnetic">Call 9589891883</a>
+        </div>
+        <div class="hero-note reveal delay-4">Custom • Made to Measure • Design Consultation</div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container intro-grid">
+        <div class="intro-visual reveal-left">
+          <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1500&q=88" alt="Premium contemporary home interior">
+          <div class="floating-tag reveal delay-2">
+            <b>01</b>
+            <span>Design your space around the details that matter.</span>
+          </div>
+        </div>
+
+        <div class="intro-text reveal-right">
+          <div class="section-kicker">The Aura approach</div>
+          <h2 class="section-title">Interiors with a softer, smarter point of view.</h2>
+          <p>
+            AURA BLIND AND WALLPAPER brings together window styling, custom wall design,
+            room aesthetics and furniture-led visual harmony under one roof.
+          </p>
+          <p>
+            From a calm bedroom to a devotional mandir, playful kids room or statement
+            living space, every surface is treated as part of one complete interior story.
+          </p>
+
+          <div class="mini-points">
+            <div class="mini-point"><b>Custom sizing</b><span>Designed around your actual windows and walls.</span></div>
+            <div class="mini-point"><b>Design preview</b><span>Visualise the look before you commit.</span></div>
+            <div class="mini-point"><b>Premium finish</b><span>Clean detailing with a refined visual feel.</span></div>
+            <div class="mini-point"><b>One-to-one guidance</b><span>Personal support from selection to installation.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section services" id="services">
+      <div class="container">
+        <div class="section-head">
+          <div class="reveal-left">
+            <div class="section-kicker">What we create</div>
+            <h2 class="section-title">One room.<br>Many possibilities.</h2>
+          </div>
+          <p class="section-intro reveal-right">
+            Mix light control, privacy, colour, texture and wall art to build a room that
+            feels finished rather than simply decorated.
+          </p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card reveal delay-1">
+            <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1100&q=85" alt="Custom blinds and luxury home interior">
+            <div class="service-content">
+              <span class="service-no">01 / WINDOW</span>
+              <h3>Custom Blinds</h3>
+              <p>Roller, Roman and tailored window solutions for privacy, light and style.</p>
+            </div>
+          </article>
+
+          <article class="service-card reveal delay-2">
+            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1100&q=85" alt="Luxury wallpaper and interior wall">
+            <div class="service-content">
+              <span class="service-no">02 / WALLS</span>
+              <h3>Wallpaper</h3>
+              <p>Statement prints, textured looks and custom artwork for feature walls.</p>
+            </div>
+          </article>
+
+          <article class="service-card reveal delay-3">
+            <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1100&q=85" alt="Elegant bedroom furniture and wallpaper">
+            <div class="service-content">
+              <span class="service-no">03 / HOME</span>
+              <h3>Home Styling</h3>
+              <p>Furniture, fabrics, wall finishes and accessories brought into one visual language.</p>
+            </div>
+          </article>
+
+          <article class="service-card reveal delay-4">
+            <img src="https://images.unsplash.com/photo-1615874694520-474822394e73?auto=format&fit=crop&w=1100&q=85" alt="Kids room interior design">
+            <div class="service-content">
+              <span class="service-no">04 / ROOMS</span>
+              <h3>Kids Rooms</h3>
+              <p>Fun, expressive walls and practical window treatments made for growing spaces.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="collections">
+      <div class="container">
+        <div class="section-head">
+          <div class="reveal-left">
+            <div class="section-kicker">Signature spaces</div>
+            <h2 class="section-title">Designed for<br>the way you live.</h2>
+          </div>
+          <p class="section-intro reveal-right">
+            Choose a visual direction, then customise the colour, pattern, scale and finish
+            to suit your space.
+          </p>
+        </div>
+
+        <div class="collection-grid">
+          <article class="collection-card reveal">
+            <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1500&q=88" alt="Custom blinds interior">
+            <div class="collection-overlay"><h3>Custom Blinds</h3><p>Light control with a tailored finish.</p></div>
+          </article>
+
+          <article class="collection-card reveal delay-1">
+            <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1300&q=88" alt="Luxury home wallpaper">
+            <div class="collection-overlay"><h3>Home</h3><p>Warm, layered and timeless interiors.</p></div>
+          </article>
+
+          <article class="collection-card reveal delay-2">
+            <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1300&q=88" alt="Calm mandir inspired interior">
+            <div class="collection-overlay"><h3>Mandir</h3><p>Peaceful visual spaces with an Indian soul.</p></div>
+          </article>
+
+          <article class="collection-card reveal delay-3">
+            <img src="https://images.unsplash.com/photo-1615874694520-474822394e73?auto=format&fit=crop&w=1500&q=88" alt="Beautiful kids room">
+            <div class="collection-overlay"><h3>Kids Room</h3><p>Playful, colourful and made to feel personal.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section process" id="process">
+      <div class="container">
+        <div class="section-head">
+          <div class="reveal-left">
+            <div class="section-kicker">Our process</div>
+            <h2 class="section-title">From idea to<br>finished room.</h2>
+          </div>
+          <p class="section-intro reveal-right">
+            A simple, guided journey from your first room photo to the final installation.
+          </p>
+        </div>
+
+        <div class="process-grid">
+          <div class="process-step reveal"><span class="step-num">01 — DISCOVER</span><h3>Share</h3><p>Send your room photo, measurements, inspiration or simply tell us the look you want.</p></div>
+          <div class="process-step reveal delay-1"><span class="step-num">02 — CURATE</span><h3>Choose</h3><p>We suggest suitable blinds, wallpapers, colours, patterns and room combinations.</p></div>
+          <div class="process-step reveal delay-2"><span class="step-num">03 — VISUALISE</span><h3>Preview</h3><p>Review the direction and refine the design before the final order.</p></div>
+          <div class="process-step reveal delay-3"><span class="step-num">04 — INSTALL</span><h3>Transform</h3><p>Your selected products are prepared, fitted and finished for the space.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section showcase">
+      <div class="container showcase-wrap">
+        <div class="showcase-image reveal-left">
+          <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1600&q=88" alt="Luxury furniture and interior styling">
+        </div>
+        <div class="reveal-right">
+          <div class="section-kicker">Beyond wallpaper</div>
+          <h2 class="section-title">Let the furniture and walls speak the same language.</h2>
+          <p class="section-intro" style="margin-top:22px">
+            Great interiors are not about adding more. They are about choosing the right
+            textures, proportions and visual rhythm.
+          </p>
+
+          <div class="feature-list">
+            <div class="feature">
+              <div class="feature-icon">01</div>
+              <div><h3>Furniture harmony</h3><p>Coordinate wall patterns and window treatments with beds, sofas, consoles and accent pieces.</p></div>
+            </div>
+            <div class="feature">
+              <div class="feature-icon">02</div>
+              <div><h3>Light & privacy</h3><p>Choose window treatments according to daylight, privacy and the mood of the room.</p></div>
+            </div>
+            <div class="feature">
+              <div class="feature-icon">03</div>
+              <div><h3>Personal expression</h3><p>Use custom prints and room-specific concepts to make your space unmistakably yours.</p></div>
+            </div>
+          </div>
+
+          <a href="https://wa.me/919589891883?text=Hello%20AURA%20BLIND%20AND%20WALLPAPER%2C%20I%20want%20help%20choosing%20a%20design." class="btn btn-gold magnetic" style="margin-top:30px">Get Design Help ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reviews">
+      <div class="container">
+        <div class="section-head">
+          <div class="reveal-left">
+            <div class="section-kicker">Client experience</div>
+            <h2 class="section-title">A beautiful room<br>should feel personal.</h2>
+          </div>
+          <p class="section-intro reveal-right">
+            Add your real Google/Instagram customer reviews here as the business grows.
+          </p>
+        </div>
+
+        <div class="review-grid">
+          <article class="review reveal"><div class="stars">★★★★★</div><p>“The wallpaper completely changed the mood of our living room. The final finish looks so premium.”</p><small>Home Interior Client</small></article>
+          <article class="review reveal delay-1"><div class="stars">★★★★★</div><p>“The team helped us select the right blinds for privacy and daylight without making the room feel heavy.”</p><small>Custom Blinds Client</small></article>
+          <article class="review reveal delay-2"><div class="stars">★★★★★</div><p>“Our mandir wall now feels calm and special. The custom design made the space feel truly ours.”</p><small>Mandir Wallpaper Client</small></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container faq-wrap">
+        <div class="section-head">
+          <div class="reveal-left">
+            <div class="section-kicker">Questions</div>
+            <h2 class="section-title">Frequently<br>asked.</h2>
+          </div>
+          <p class="section-intro reveal-right">Quick answers before you begin your design consultation.</p>
+        </div>
+
+        <div class="faq">
+          <div class="faq-item reveal">
+            <button class="faq-q"><span>Can you customise wallpaper according to my room?</span><span>+</span></button>
+            <div class="faq-a"><p>Yes. Share your room photo, wall size and preferred style. The design can be adjusted around the room, furniture and visual direction.</p></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-q"><span>Do you provide custom blinds for different window sizes?</span><span>+</span></button>
+            <div class="faq-a"><p>Yes. Blinds can be planned around the actual window dimensions, required privacy, light control and overall interior style.</p></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-q"><span>Can I get designs for a mandir or pooja room?</span><span>+</span></button>
+            <div class="faq-a"><p>Yes. You can request devotional, traditional, artistic or contemporary concepts for mandir and pooja-room spaces.</p></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-q"><span>Can you help me choose the design?</span><span>+</span></button>
+            <div class="faq-a"><p>Absolutely. Send a photo of your room on WhatsApp with your approximate wall/window size and tell us your preferred budget and style.</p></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-q"><span>How do I start?</span><span>+</span></button>
+            <div class="faq-a"><p>Tap the WhatsApp button and send your room photo. A design conversation can then begin around your requirements.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="cta-box reveal">
+        <div class="section-kicker">Start your space</div>
+        <h2>Have a wall, window or room waiting for an Aura touch?</h2>
+        <p>Send us a photo of your space and tell us what you want to create. Let’s build a visual direction together.</p>
+        <div class="hero-actions">
+          <a class="btn btn-dark magnetic" href="https://wa.me/919589891883?text=Hello%20AURA%20BLIND%20AND%20WALLPAPER%2C%20I%20want%20a%20free%20design%20consultation.">WhatsApp for Consultation ↗</a>
+          <a class="btn btn-outline magnetic" href="tel:+919589891883">Call Now</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <h3>AURA BLIND<br>AND WALLPAPER</h3>
+        <p>Custom blinds, wallpapers and interior styling for homes, mandirs, kids rooms and furniture-led spaces.</p>
+      </div>
+      <div>
+        <div class="footer-title">Explore</div>
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#collections">Collections</a>
+          <a href="#process">Process</a>
+          <a href="#faq">FAQ</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-title">Connect</div>
+        <div class="footer-links">
+          <a href="tel:+919589891883">+91 95898 91883</a>
+          <a href="https://wa.me/919589891883">WhatsApp</a>
+          <a href="https://www.instagram.com/aurablindandwallpaper/" target="_blank" rel="noopener">Instagram</a>
+          <span>Bhopal • Delhi</span>
+        </div>
+      </div>
     </div>
 
-    <div class="marketing-intro">
-
-        <div class="marketing-copy reveal-left">
-            <h3>Turn digital attention into <span>business growth.</span></h3>
-            <p>
-                A great website is only one part of the digital journey. Our digital marketing services are designed to connect your brand with potential customers across the platforms where they already spend their time.
-                From social media management to Meta Ads, Google Ads and campaign landing pages, we create a connected digital system around your business.
-            </p>
-
-            <div class="marketing-points">
-                <div class="marketing-point"><span class="check">✓</span>Social Media Management</div>
-                <div class="marketing-point"><span class="check">✓</span>Meta Ads Campaigns</div>
-                <div class="marketing-point"><span class="check">✓</span>Google Ads Management</div>
-                <div class="marketing-point"><span class="check">✓</span>Lead Generation</div>
-                <div class="marketing-point"><span class="check">✓</span>Campaign Strategy</div>
-                <div class="marketing-point"><span class="check">✓</span>Conversion Landing Pages</div>
-            </div>
-        </div>
-
-        <div class="marketing-visual reveal-right">
-            <div class="marketing-main-image">
-                <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1200&q=90"
-                     alt="Digital marketing strategy meeting">
-            </div>
-
-            <div class="marketing-float top">
-                <small>Social Presence</small>
-                <strong>Content → Community</strong>
-            </div>
-
-            <div class="marketing-float bottom">
-                <small>Paid Growth</small>
-                <strong>Ads → Leads → Sales</strong>
-            </div>
-        </div>
-
+    <div class="footer-bottom">
+      <span>© 2026 AURA BLIND AND WALLPAPER. All rights reserved.</span>
+      <span>Designed with care • Premium Interior Experiences</span>
     </div>
-
-    <div class="marketing-services">
-
-        <div class="marketing-service reveal" style="--delay:.05s">
-            <div class="marketing-icon">◎</div>
-            <h4>Social Media Management</h4>
-            <p>
-                Consistent content planning, creative direction, captions, publishing and profile management designed around your brand.
-            </p>
-        </div>
-
-        <div class="marketing-service reveal" style="--delay:.10s">
-            <div class="marketing-icon">◈</div>
-            <h4>Meta Ads</h4>
-            <p>
-                Campaign setup and optimization for Facebook and Instagram advertising with audience, creative and conversion goals in mind.
-            </p>
-        </div>
-
-        <div class="marketing-service reveal" style="--delay:.15s">
-            <div class="marketing-icon">⌕</div>
-            <h4>Google Ads</h4>
-            <p>
-                Search-focused advertising designed to put your business in front of people actively looking for relevant products and services.
-            </p>
-        </div>
-
-        <div class="marketing-service reveal" style="--delay:.20s">
-            <div class="marketing-icon">↗</div>
-            <h4>Lead Generation</h4>
-            <p>
-                Campaign funnels, enquiry journeys and landing pages structured to help turn digital traffic into genuine business conversations.
-            </p>
-        </div>
-
-    </div>
-
-    <div class="ads-strip reveal">
-        <div class="ads-strip-copy">
-            <h4>One strategy. Multiple digital touchpoints.</h4>
-            <p>
-                We can connect your website, social media presence and paid campaigns into one consistent customer journey.
-            </p>
-        </div>
-
-        <div class="ads-platforms">
-            <div class="ads-platform">Meta Ads</div>
-            <div class="ads-platform">Google Ads</div>
-            <div class="ads-platform">Instagram</div>
-            <div class="ads-platform">Facebook</div>
-        </div>
-    </div>
-
-</div>
-</section>
-
-
-<!-- ======================================================
-     STATS / COUNTERS SECTION
-====================================================== -->
-
-<section class="stats">
-<div class="container stats-grid">
-<div class="stat reveal">
-<div class="stat-number" data-target="50">0+</div>
-<p>Projects & Concepts</p>
-</div>
-<div class="stat reveal">
-<div class="stat-number" data-target="30">0+</div>
-<p>Businesses Served</p>
-</div>
-<div class="stat reveal">
-<div class="stat-number" data-target="100">0%</div>
-<p>Creative Focus</p>
-</div>
-<div class="stat reveal">
-<div class="stat-number" data-target="24">0/7</div>
-<p>Ideas Never Stop</p>
-</div>
-</div>
-</section>
-
-
-<!-- ======================================================
-     FOUNDERS SECTION (Pratap Singh Rathore & Harshvardhan)
-====================================================== -->
-
-<section class="founders section-space" id="founders">
-<div class="container">
-<div class="reveal">
-<div class="section-label"><span></span>Leadership</div>
-<h2 class="section-title">Meet the <span>Minds.</span></h2>
-<p class="section-copy" style="max-width:600px;margin-top:20px;">The vision and leadership driving Marwar Infotech towards excellence.</p>
-</div>
-
-<div class="founders-grid">
-<div class="founder-card reveal">
-<div class="founder-img">
-<img src="f.jpeg" alt="Pratap Singh Rathore - Founder">
-</div>
-<div class="founder-info">
-<small>Founder</small>
-<h3>Pratap Singh Rathore</h3>
-<p>Leading the core vision, business development and overall strategy to deliver top-tier digital solutions.</p>
-</div>
-</div>
-
-<div class="founder-card reveal">
-<div class="founder-img">
-<img src="co.jpeg" alt="Harshvardhan Singh Rathore - Co-Founder">
-</div>
-<div class="founder-info">
-<small>Co-Founder</small>
-<h3>Harshvardhan Singh Rathore</h3>
-<p>Managing creative technical implementation, design standards and cutting-edge web developments.</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-
-<!-- ======================================================
-     ABOUT
-====================================================== -->
-
-<section class="about section-space" id="about">
-<div class="container about-grid">
-<div class="about-image reveal-left">
-<img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=85" alt="Creative team">
-</div>
-
-<div class="about-content reveal-right">
-<div class="section-label"><span></span>About Marwar</div>
-<h2 class="section-title">Not just a <span>website.</span></h2>
-<p class="section-copy">
-We believe a website should do more than simply exist online. It should communicate your brand, create trust and make people want to interact with your business.
-</p>
-
-<div class="about-list">
-<div><span class="check">✓</span>Premium visual design</div>
-<div><span class="check">✓</span>Smooth animations & interactions</div>
-<div><span class="check">✓</span>Mobile-first responsive experience</div>
-<div><span class="check">✓</span>Business-focused design</div>
-</div>
-</div>
-</div>
-</section>
-
-
-<!-- ======================================================
-     PORTFOLIO / WEBSITE SHOWCASE (CLICKABLE FOR MORE IMAGES)
-====================================================== -->
-
-<section class="portfolio section-space" id="work">
-<div class="container">
-<div class="reveal">
-<div class="section-label"><span></span>Selected Work</div>
-<h2 class="section-title">Made to be <span>noticed.</span></h2>
-<p class="section-copy" style="margin-top:15px; color:var(--muted);">Click on any project to view comprehensive details and project screenshots.</p>
-</div>
-
-<div class="portfolio-grid" id="portfolioGrid">
-
-<div class="project reveal" onclick="openShowcase('Modern Corporate', 'A state-of-the-art corporate web design built for high-end enterprise clients with smooth navigation and advanced UI.', ['https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1000&q=85', 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1000&q=85'])">
-<img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1400&q=85" alt="Modern office website concept">
-<div class="project-info">
-<small>Business Website</small>
-<h3>Modern Corporate</h3>
-</div>
-</div>
-
-<div class="project reveal" onclick="openShowcase('Business Growth Hub', 'A dynamic platform designed to elevate local businesses into market leaders through high conversion layouts.', ['https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1000&q=85', 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=85'])">
-<img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1400&q=85" alt="Business workspace">
-<div class="project-info">
-<small>Digital Experience</small>
-<h3>Business Growth</h3>
-</div>
-</div>
-
-<div class="project reveal" onclick="openShowcase('Digital Studio Showcase', 'An immersive creative studio website featuring webgl elements, custom animations and striking visuals.', ['https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1000&q=85', 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1000&q=85'])">
-<img src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1400&q=85" alt="Creative website design">
-<div class="project-info">
-<small>Creative Website</small>
-<h3>Digital Studio</h3>
-</div>
-</div>
-
-<div class="project reveal" onclick="openShowcase('Future Interface UI/UX', 'Next-gen dashboard user experience focused on intuitive control systems and ultra-clean typography.', ['https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1000&q=85', 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1000&q=85'])">
-<img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1400&q=85" alt="UI UX design">
-<div class="project-info">
-<small>UI / UX</small>
-<h3>Future Interface</h3>
-</div>
-</div>
-
-</div>
-</div>
-</section>
-
-
-<!-- ======================================================
-     SHOWCASE POPUP MODAL
-====================================================== -->
-
-<div class="showcase-modal-overlay" id="showcaseModal" onclick="closeShowcase(event)">
-<div class="showcase-modal">
-<button class="showcase-close" onclick="closeShowcaseModal()">×</button>
-<h3 id="showcaseTitle" style="font-family:'Manrope'; font-size:30px; margin-bottom:12px;">Project Title</h3>
-<p id="showcaseDesc" style="color:var(--muted); line-height:1.7; font-size:16px;">Description goes here...</p>
-<div class="showcase-gallery" id="showcaseGalleryImages"></div>
-</div>
-</div>
-
-
-<!-- ======================================================
-     STATEMENT
-====================================================== -->
-
-<section class="statement">
-<div class="container reveal">
-<h2>Your business deserves a <span>better first impression.</span></h2>
-</div>
-</section>
-
-
-<!-- ======================================================
-     PROCESS
-====================================================== -->
-
-<section class="process section-space" id="process">
-<div class="container">
-<div class="reveal">
-<div class="section-label"><span></span>Our Process</div>
-<h2 class="section-title">Simple process. <span>Big results.</span></h2>
-</div>
-
-<div class="process-grid">
-<div class="process-card reveal">
-<div class="process-num">01 / DISCOVER</div>
-<h3>Understand</h3>
-<p>We understand your business, audience, goals and what makes your brand different.</p>
-</div>
-
-<div class="process-card reveal">
-<div class="process-num">02 / DESIGN</div>
-<h3>Design</h3>
-<p>We turn the strategy into a visual experience with premium UI, motion and interactions.</p>
-</div>
-
-<div class="process-card reveal">
-<div class="process-num">03 / BUILD</div>
-<h3>Develop</h3>
-<p>The approved experience is transformed into a fast and responsive working website.</p>
-</div>
-
-<div class="process-card reveal">
-<div class="process-num">04 / LAUNCH</div>
-<h3>Launch</h3>
-<p>We test everything and prepare your website for its next stage of growth.</p>
-</div>
-</div>
-</div>
-</section>
-
-
-<!-- ======================================================
-     CLIENT REVIEWS SECTION
-====================================================== -->
-
-<section class="testimonials section-space" id="reviews">
-<div class="container">
-<div class="reveal" style="text-align:center;">
-<div class="section-label"><span></span>Testimonials</div>
-<h2 class="section-title">Loved by <span>clients.</span></h2>
-<p class="section-copy" style="max-width:600px; margin:15px auto 0;">Here is what business owners say about working with Marwar Infotech.</p>
-</div>
-
-<div class="reviews-grid">
-<div class="review-card reveal">
-<div class="review-stars">★★★★★</div>
-<p>"Marwar Infotech completely transformed our online presence. The website looks incredibly luxurious and professional!"</p>
-<div class="review-author">
-<h4>Rahul Sharma</h4>
-<span>CEO, TechVenture</span>
-</div>
-</div>
-
-<div class="review-card reveal">
-<div class="review-stars">★★★★★</div>
-<p>"Pratap and Harshvardhan delivered beyond expectations. Clean code, smooth animations, and amazing support."</p>
-<div class="review-author">
-<h4>Amitabh Joshi</h4>
-<span>Founder, UrbanSpaces</span>
-</div>
-</div>
-
-<div class="review-card reveal">
-<div class="review-stars">★★★★★</div>
-<p>"Our customer enquiries tripled within a week of launching our new landing page. Highly recommended team!"</p>
-<div class="review-author">
-<h4>Priya Rathore</h4>
-<span>Director, LuxeLiving</span>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-
-<!-- ======================================================
-     FAQ
-====================================================== -->
-
-<section class="faq section-space" id="faq">
-<div class="container">
-<div class="reveal">
-<div class="section-label"><span></span>FAQ</div>
-<h2 class="section-title">Have a <span>question?</span></h2>
-</div>
-
-<div class="faq-wrap" id="faqWrap">
-
-<div class="faq-item reveal">
-<button class="faq-question">
-<span>How long does a website take?</span>
-<span class="faq-plus">+</span>
-</button>
-<div class="faq-answer">
-<div class="faq-answer-inner">Depending on the project, a professional business website can usually be designed and developed within a few days to a few weeks.</div>
-</div>
-</div>
-
-<div class="faq-item reveal">
-<button class="faq-question">
-<span>Can you create custom animations?</span>
-<span class="faq-plus">+</span>
-</button>
-<div class="faq-answer">
-<div class="faq-answer-inner">Yes. We can build custom scroll animations, magnetic interactions, hover effects, transitions and other interactive elements.</div>
-</div>
-</div>
-
-<div class="faq-item reveal">
-<button class="faq-question">
-<span>Will the website work on mobile?</span>
-<span class="faq-plus">+</span>
-</button>
-<div class="faq-answer">
-<div class="faq-answer-inner">Yes. Websites are designed responsively so the experience adapts to phones, tablets and desktop screens.</div>
-</div>
-</div>
-
-<div class="faq-item reveal">
-<button class="faq-question">
-<span>Can you redesign an existing website?</span>
-<span class="faq-plus">+</span>
-</button>
-<div class="faq-answer">
-<div class="faq-answer-inner">Absolutely. We can redesign an existing website with a completely new visual direction, better UX and modern interactions.</div>
-</div>
-</div>
-
-</div>
-</div>
-</section>
-
-
-<!-- ======================================================
-     CTA
-====================================================== -->
-
-<section class="cta">
-<div class="container cta-inner">
-<div class="reveal-left">
-<h2>Let's build something different.</h2>
-<p>Have an idea, a business or an existing website that needs a serious upgrade? Let's talk.</p>
-</div>
-<button class="primary-btn magnetic reveal-right" onclick="openDrawer()">Start a Conversation →</button>
-</div>
-</section>
-
-
-<!-- ======================================================
-     FOOTER (WITH NORMAL ICONS & INSTAGRAM)
-====================================================== -->
-
-<footer>
-<div class="container">
-<div class="footer-top">
-
-<div class="footer-brand">
-<a href="#" class="logo">
-<div class="logo-mark">M</div>
-<span>Marwar Infotech</span>
-</a>
-<p>Building modern digital experiences for ambitious businesses under leadership of Pratap Singh Rathore & Harshvardhan Singh Rathore.</p>
-</div>
-
-<div class="footer-links">
-<div class="footer-col">
-<h4>Explore</h4>
-<a href="#services">Services</a>
-<a href="#digital-marketing">Marketing</a>
-<a href="#about">About</a>
-<a href="#founders">Founders</a>
-<a href="#work">Work</a>
-<a href="#process">Process</a>
-</div>
-
-<div class="footer-col">
-<h4>Connect</h4>
-<a href="tel:+917979346610">📞 Call Us</a>
-<a href="https://wa.me/917976346610" target="_blank">💬 WhatsApp</a>
-<a href="https://instagram.com/marwarinfotech" target="_blank">📷 Instagram (@marwarinfotech)</a>
-<a href="mailto:marwarinfotechh@gmail.com">✉️ Email</a>
-</div>
-</div>
-
-</div>
-
-<div class="footer-bottom">
-<div>© 2026 Marwar Infotech. All rights reserved.</div>
-<div class="footer-credit">Designed by Marwar Infotech</div>
-</div>
-</div>
-</footer>
-
-
-<!-- FLOATING WHATSAPP & CALL BUTTONS WITH NORMAL ICONS -->
-
-<div class="floating-buttons">
-<a class="float-btn whatsapp magnetic" href="https://wa.me/917976346610" target="_blank" aria-label="WhatsApp">💬</a>
-<a class="float-btn call magnetic" href="tel:+917979346610" aria-label="Call">📞</a>
-</div>
-
-
-<!-- ENQUIRY DRAWER -->
-
-<div class="overlay" onclick="closeDrawer()"></div>
-
-<div class="drawer">
-<button class="drawer-close" onclick="closeDrawer()">×</button>
-<h2>Let's create something great.</h2>
-<p>Tell us a little about your project and we'll get back to you.</p>
-
-<form class="form" onsubmit="submitForm(event)">
-<input type="text" placeholder="Your Name" required>
-<input type="tel" placeholder="Phone Number" required>
-<input type="email" placeholder="Email Address">
-<select>
-<option value="">Select Service</option>
-<option>Website Design</option>
-<option>Business Website</option>
-<option>UI / UX Design</option>
-<option>Landing Page</option>
-<option>Website Redesign</option>
-<option>Digital Marketing</option>
-<option>Social Media Management</option>
-<option>Meta Ads</option>
-<option>Google Ads</option>
-<option>Lead Generation</option>
-</select>
-<textarea placeholder="Tell us about your project..."></textarea>
-<button type="submit">Send Enquiry →</button>
-</form>
-</div>
-
-
-<script>
-
-/* =========================================================
-   JAVASCRIPT FUNCTIONALITY
-========================================================= */
-
-const navbar=document.querySelector(".navbar");
-
-window.addEventListener("scroll",()=>{
-    if(window.scrollY>50){
-        navbar.classList.add("scrolled");
-    }else{
-        navbar.classList.remove("scrolled");
-    }
-});
-
-
-const cursor=document.querySelector(".cursor-glow");
-
-window.addEventListener("mousemove",(e)=>{
-    if(!cursor)return;
-    cursor.animate({
-        left:e.clientX+"px",
-        top:e.clientY+"px"
-    },{
-        duration:500,
-        fill:"forwards"
-    });
-});
-
-
-// HERO BACKGROUND AUTO SLIDER
-let currentSlide = 0;
-const slides = document.querySelectorAll('.hero-slide');
-function nextHeroSlide() {
-    if(slides.length === 0) return;
-    slides[currentSlide].classList.remove('active');
-    currentSlide = (currentSlide + 1) % slides.length;
-    slides[currentSlide].classList.add('active');
-}
-setInterval(nextHeroSlide, 4500);
-
-
-// PROJECT SHOWCASE POPUP MODAL
-function openShowcase(title, description, images) {
-    document.getElementById('showcaseTitle').textContent = title;
-    document.getElementById('showcaseDesc').textContent = description;
-    const galleryEl = document.getElementById('showcaseGalleryImages');
-    galleryEl.innerHTML = '';
-    images.forEach(imgUrl => {
-        const img = document.createElement('img');
-        img.src = imgUrl;
-        galleryEl.appendChild(img);
-    });
-    document.getElementById('showcaseModal').style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-}
-
-function closeShowcaseModal() {
-    document.getElementById('showcaseModal').style.display = 'none';
-    document.body.style.overflow = '';
-}
-
-function closeShowcase(e) {
-    if(e.target.id === 'showcaseModal') {
-        closeShowcaseModal();
-    }
-}
-
-
-function setupReveal(){
-    document.querySelectorAll(".reveal,.reveal-left,.reveal-right").forEach(el=>{
-        if(el.dataset.revealReady) return;
-        el.dataset.revealReady="1";
-        if(el.classList.contains("active")) return;
-        revealObserver.observe(el);
-    });
-}
-
-
-const revealObserver=new IntersectionObserver((entries)=>{
-    entries.forEach(entry=>{
+  </footer>
+
+  <div class="float-stack">
+    <a class="float-btn float-call magnetic" href="tel:+919589891883" aria-label="Call AURA BLIND AND WALLPAPER">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.5 2.9 3.7 5.1 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1 .3 2 .5 3.1.5.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C11 21 3 13 3 3.3c0-.6.4-1 1-1H7.5c.6 0 1 .4 1 1 0 1.1.2 2.1.5 3.1.1.4 0 .9-.2 1.2l-2.2 2.2z"/></svg>
+    </a>
+    <a class="float-btn float-wa magnetic" href="https://wa.me/919589891883?text=Hello%20AURA%20BLIND%20AND%20WALLPAPER%2C%20I%20want%20a%20design%20consultation." aria-label="WhatsApp AURA BLIND AND WALLPAPER">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.7 11.7 0 0 0 12.2 0C5.7 0 .4 5.2.4 11.7c0 2.1.6 4.1 1.7 5.9L.3 24l6.6-1.7c1.8 1 3.7 1.5 5.7 1.5 6.5 0 11.8-5.2 11.8-11.7 0-3.1-1.4-6.3-3.9-8.6ZM12.6 21.7c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.9 1 1-3.8-.3-.4a9.8 9.8 0 0 1-1.5-5.2c0-5.4 4.4-9.8 9.9-9.8 2.6 0 5.1 1 7 2.9 1.9 1.9 2.9 4.3 2.9 6.9 0 5.5-4.4 10-9.7 10Zm5.4-7.4c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-1.6-.8-2.7-1.4-3.8-3.1-.3-.5.3-.5.9-1.7.1-.2.1-.4 0-.6-.1-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.7s1.2 3.1 1.4 3.3c.2.2 2.3 3.5 5.6 4.9 2.1.9 2.9 1 3.9.9.6-.1 1.8-.7 2.1-1.3.3-.6.3-1.2.2-1.3-.1-.2-.3-.3-.6-.4Z"/></svg>
+    </a>
+  </div>
+
+  <script>
+    // PRELOADER — always releases even if an image is slow
+    const preloader = document.getElementById("preloader");
+    const unlock = () => {
+      preloader.classList.add("hide");
+      document.body.classList.remove("locked");
+    };
+    window.addEventListener("load", () => setTimeout(unlock, 550));
+    setTimeout(unlock, 2800);
+
+    // MOBILE MENU
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+    menuBtn.addEventListener("click", () => navLinks.classList.toggle("open"));
+    navLinks.querySelectorAll("a").forEach(a => a.addEventListener("click", () => navLinks.classList.remove("open")));
+
+    // STICKY NAV
+    const nav = document.getElementById("nav");
+    const navState = () => nav.classList.toggle("scrolled", window.scrollY > 35);
+    navState();
+    window.addEventListener("scroll", navState, {passive:true});
+
+    // SCROLL REVEALS
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
         if(entry.isIntersecting){
-            entry.target.classList.add("active");
-            revealObserver.unobserve(entry.target);
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
         }
-    });
-},{
-    threshold:.12,
-    rootMargin:"0px 0px -60px 0px"
-});
+      });
+    }, {threshold:.13, rootMargin:"0px 0px -40px 0px"});
+    document.querySelectorAll(".reveal,.reveal-left,.reveal-right").forEach(el => observer.observe(el));
 
-setupReveal();
-
-
-function setupMagnetic(){
-    document.querySelectorAll(".magnetic").forEach(button=>{
-        if(button.dataset.magneticReady) return;
-        button.dataset.magneticReady="1";
-        button.addEventListener("mousemove",function(e){
-            const rect=this.getBoundingClientRect();
-            const x=e.clientX-rect.left-rect.width/2;
-            const y=e.clientY-rect.top-rect.height/2;
-            this.style.transform=`translate(${x*.18}px,${y*.18}px)`;
+    // FAQ ACCORDION
+    document.querySelectorAll(".faq-q").forEach(button => {
+      button.addEventListener("click", () => {
+        const item = button.parentElement;
+        const answer = item.querySelector(".faq-a");
+        document.querySelectorAll(".faq-item.open").forEach(other => {
+          if(other !== item){
+            other.classList.remove("open");
+            other.querySelector(".faq-a").style.maxHeight = null;
+          }
         });
-        button.addEventListener("mouseleave",function(){
-            this.style.transform="translate(0,0)";
-        });
+        item.classList.toggle("open");
+        answer.style.maxHeight = item.classList.contains("open") ? answer.scrollHeight + "px" : null;
+      });
     });
-}
 
-setupMagnetic();
-
-
-function setupTilt(){
-    document.querySelectorAll(".service-card,.project,.founder-card").forEach(card=>{
-        if(card.dataset.tiltReady) return;
-        card.dataset.tiltReady="1";
-        card.addEventListener("mousemove",function(e){
-            const rect=this.getBoundingClientRect();
-            const x=e.clientX-rect.left;
-            const y=e.clientY-rect.top;
-            const rotateX=((y/rect.height)-.5)*-5;
-            const rotateY=((x/rect.width)-.5)*5;
-            this.style.transform=`perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
-        });
-        card.addEventListener("mouseleave",function(){
-            this.style.transform="";
-        });
+    // MAGNETIC INTERACTION
+    document.querySelectorAll(".magnetic").forEach(el => {
+      el.addEventListener("mousemove", (e) => {
+        const r = el.getBoundingClientRect();
+        const x = e.clientX - (r.left + r.width/2);
+        const y = e.clientY - (r.top + r.height/2);
+        const strength = el.classList.contains("float-btn") ? 0.25 : 0.18;
+        el.style.transform = `translate(${x*strength}px, ${y*strength}px)`;
+      });
+      el.addEventListener("mouseleave", () => {
+        el.style.transform = "";
+      });
     });
-}
 
-setupTilt();
-
-
-function setupFAQ(){
-    document.querySelectorAll(".faq-question").forEach(question=>{
-        if(question.dataset.faqReady) return;
-        question.dataset.faqReady="1";
-        question.addEventListener("click",()=>{
-            const item=question.parentElement;
-            document.querySelectorAll(".faq-item").forEach(other=>{
-                if(other!==item){
-                    other.classList.remove("active");
-                }
-            });
-            item.classList.toggle("active");
-        });
-    });
-}
-
-setupFAQ();
-
-
-function openDrawer(){
-    document.querySelector(".drawer").classList.add("active");
-    document.querySelector(".overlay").classList.add("active");
-    document.body.style.overflow="hidden";
-}
-
-
-function closeDrawer(){
-    document.querySelector(".drawer").classList.remove("active");
-    document.querySelector(".overlay").classList.remove("active");
-    document.body.style.overflow="";
-}
-
-
-function submitForm(e){
-    e.preventDefault();
-    const inputs=e.target.querySelectorAll("input,select,textarea");
-    const name=inputs[0].value;
-    const phone=inputs[1].value;
-    const email=inputs[2].value;
-    const service=inputs[3].value;
-    const message=inputs[4].value;
-
-    const whatsappMessage=`Hello Marwar Infotech,\n\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nService: ${service}\n\nProject:\n${message}`;
-    const url="https://wa.me/917976346610?text="+encodeURIComponent(whatsappMessage);
-    window.open(url,"_blank");
-}
-
-
-document.addEventListener("keydown",(e)=>{
-    if(e.key==="Escape"){
-        closeDrawer();
-        closeShowcaseModal();
-    }
-});
-
-
-// COUNTERS ANIMATION
-function runCounters(){
-    document.querySelectorAll(".stat-number").forEach(counter=>{
-        if(counter.dataset.counterDone) return;
-        const target=Number(counter.dataset.target);
-        if(!target) return;
-        counter.dataset.counterDone="1";
-        let current=0;
-        const duration=1300;
-        const start=performance.now();
-
-        function animate(time){
-            const progress=Math.min((time-start)/duration,1);
-            current=Math.floor(progress*target);
-            if(target===100){
-                counter.textContent=current+"%";
-            }else if(target===24){
-                counter.textContent=current+"/7";
-            }else{
-                counter.textContent=current+"+";
-            }
-            if(progress<1){
-                requestAnimationFrame(animate);
-            }
-        }
-        requestAnimationFrame(animate);
-    });
-}
-
-
-const counterObserver=new IntersectionObserver((entries)=>{
-    entries.forEach(entry=>{
-        if(entry.isIntersecting){
-            runCounters();
-            counterObserver.unobserve(entry.target);
-        }
-    });
-},{threshold:.4});
-
-
-document.querySelectorAll(".stat-number").forEach(counter=>{
-    counterObserver.observe(counter);
-});
-
-</script>
-
+    // SUBTLE HERO PARALLAX
+    const heroImg = document.querySelector(".hero-media img");
+    window.addEventListener("scroll", () => {
+      if(window.scrollY < window.innerHeight){
+        heroImg.style.transform = `translateY(${window.scrollY * .08}px) scale(1.02)`;
+      }
+    }, {passive:true});
+  </script>
 </body>
 </html>
